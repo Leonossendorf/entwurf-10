@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" role="img" aria-label="Illustration: dieselbe Wand im Wärmebild, mit verdeckten Leitungen und einem Leck">
+  <defs>
+    <filter id="thermo" x="0" y="0" width="600" height="380" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.2" result="base"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="glow"/>
+      <feBlend in="base" in2="glow" mode="lighten" result="field"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="11" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="gnoise"/>
+      <feComposite in="field" in2="gnoise" operator="arithmetic" k1="0" k2="1" k3="0.07" k4="-0.035" result="grain"/>
+      <feComponentTransfer in="grain">
+        <feFuncR type="table" tableValues="0.016 0.039 0.082 0.102 0.31 0.914 1 1 0.925 1"/>
+        <feFuncG type="table" tableValues="0.031 0.122 0.275 0.561 0.816 0.953 0.831 0.604 0.29 0.945"/>
+        <feFuncB type="table" tableValues="0.122 0.4 0.722 0.878 0.925 0.816 0.231 0.133 0.11 0.878"/>
+      </feComponentTransfer>
+    </filter>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5a5a5a"/><stop offset="1" stop-color="#4c4c4c"/></linearGradient>
+    <radialGradient id="leak" cx=".46" cy=".4" r=".62"><stop offset="0" stop-color="#e0e0e0"/><stop offset=".5" stop-color="#b6b6b6"/><stop offset="1" stop-color="#565656"/></radialGradient>
+  </defs>
+  <g filter="url(#thermo)">
+    <rect width="600" height="380" fill="url(#wall)"/>
+    <rect y="306" width="600" height="74" fill="#3c3c3c"/>
+    <!-- Bild: etwas kühler als die Wand -->
+    <rect x="232" y="70" width="150" height="108" fill="#454545"/>
+    <!-- Verdeckte Leitungen unter Putz -->
+    <rect x="0" y="292" width="600" height="7" fill="#a8a8a8"/>
+    <rect x="132" y="120" width="7" height="176" fill="#a2a2a2"/>
+    <rect x="132" y="120" width="300" height="7" fill="#9c9c9c"/>
+    <rect x="425" y="120" width="7" height="118" fill="#a4a4a4"/>
+    <!-- Heizkörper warm -->
+    <rect x="420" y="232" width="140" height="62" rx="4" fill="#e6e6e6"/>
+    <!-- Leck: warmes Wasser breitet sich im Putz aus -->
+    <rect x="352" y="127" width="7" height="168" fill="#a0a0a0"/>
+    <path transform="translate(208 0)" d="M150 196 C176 180 204 196 204 222 C224 236 224 262 206 272 C210 292 186 302 168 292 C146 300 126 288 128 268 C110 256 112 232 130 224 C124 206 134 196 150 196 Z" fill="url(#leak)"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1.2">
+    <rect x="232" y="70" width="150" height="108"/>
+    <rect x="420" y="232" width="140" height="62" rx="4"/>
+    <line x1="0" y1="306" x2="600" y2="306"/><line x1="0" y1="320" x2="600" y2="320"/>
+    <rect x="92" y="262" width="26" height="26" rx="4"/><rect x="470" y="168" width="24" height="34" rx="4"/>
+  </g>
+</svg>

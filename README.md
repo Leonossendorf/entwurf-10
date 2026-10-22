@@ -1,2 +1,3 @@
-# entwurf-10
-Entwurf
+# Entwurf
+
+Unverbindlicher Entwurf von Leon Oßendorf. Kein offizieller Auftritt.

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" role="img" aria-label="Illustration: Wärmebild eines Hauses im Schnitt mit Heizung, Bad, Leitungen und Solaranlage">
+  <defs>
+    <filter id="thermo" x="0" y="0" width="800" height="560" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="base"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="glowSoft"/>
+      <feComponentTransfer in="glowSoft" result="glow"><feFuncR type="linear" slope="1.05"/><feFuncG type="linear" slope="1.05"/><feFuncB type="linear" slope="1.05"/></feComponentTransfer>
+      <feBlend in="base" in2="glow" mode="lighten" result="field"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" result="gnoise"/>
+      <feComposite in="field" in2="gnoise" operator="arithmetic" k1="0" k2="1" k3="0.07" k4="-0.035" result="grain"/>
+      <feComponentTransfer in="grain">
+        <feFuncR type="table" tableValues="0.016 0.039 0.082 0.102 0.31 0.914 1 1 0.925 1"/>
+        <feFuncG type="table" tableValues="0.031 0.122 0.275 0.561 0.816 0.953 0.831 0.604 0.29 0.945"/>
+        <feFuncB type="table" tableValues="0.122 0.4 0.722 0.878 0.925 0.816 0.231 0.133 0.11 0.878"/>
+      </feComponentTransfer>
+    </filter>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d0d0d"/><stop offset="1" stop-color="#1f1f1f"/></linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#4a4a4a"/></linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c7c7c"/><stop offset="1" stop-color="#686868"/></linearGradient>
+    <linearGradient id="roomBath" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8a8a8a"/><stop offset="1" stop-color="#7a7a7a"/></linearGradient>
+    <linearGradient id="cellar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6e6e6e"/><stop offset="1" stop-color="#5e5e5e"/></linearGradient>
+    <linearGradient id="tank" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6e6e6"/><stop offset="1" stop-color="#9c9c9c"/></linearGradient>
+    <linearGradient id="radiator" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e8e8e8"/><stop offset="1" stop-color="#c4c4c4"/></linearGradient>
+    <radialGradient id="leak" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="#d6d6d6"/><stop offset=".55" stop-color="#b8b8b8"/><stop offset="1" stop-color="#7a7a7a"/></radialGradient>
+  </defs>
+
+  <!-- Temperaturfeld (Graustufen = Temperatur), wird per Filter eingefärbt -->
+  <g filter="url(#thermo)">
+    <rect width="800" height="430" fill="url(#sky)"/>
+    <rect y="430" width="800" height="130" fill="url(#soil)"/>
+    <!-- Dach -->
+    <polygon points="400,58 96,180 704,180" fill="#4d4d4d"/>
+    <polygon points="400,78 132,176 668,176" fill="#6a6a6a"/>
+    <!-- Solarkollektoren auf der rechten Dachseite -->
+    <polygon points="470,96 610,152 596,166 456,110" fill="#d4d4d4"/>
+    <!-- Außenwände und Geschossdecken -->
+    <rect x="128" y="176" width="544" height="256" fill="#5c5c5c"/>
+    <rect x="144" y="186" width="512" height="110" fill="url(#room)"/>
+    <rect x="144" y="310" width="512" height="114" fill="url(#room)"/>
+    <rect x="412" y="186" width="244" height="110" fill="url(#roomBath)"/>
+    <!-- Innenwände -->
+    <rect x="404" y="186" width="10" height="110" fill="#666"/>
+    <rect x="396" y="310" width="12" height="114" fill="#6a6a6a"/>
+    <!-- Keller -->
+    <rect x="128" y="430" width="544" height="118" fill="#555"/>
+    <rect x="144" y="438" width="512" height="102" fill="url(#cellar)"/>
+    <!-- Heizkessel und Speicher -->
+    <rect x="186" y="452" width="62" height="84" rx="4" fill="#f2f2f2"/>
+    <rect x="270" y="446" width="44" height="90" rx="18" fill="url(#tank)"/>
+    <!-- Vorlauf / Rücklauf -->
+    <rect x="214" y="200" width="7" height="254" fill="#e0e0e0"/>
+    <rect x="228" y="200" width="6" height="254" fill="#b4b4b4"/>
+    <rect x="221" y="398" width="380" height="6" fill="#d8d8d8"/>
+    <!-- Heizkörper -->
+    <rect x="160" y="372" width="48" height="36" rx="3" fill="url(#radiator)"/>
+    <rect x="160" y="246" width="48" height="36" rx="3" fill="url(#radiator)"/>
+    <rect x="560" y="372" width="56" height="36" rx="3" fill="url(#radiator)"/>
+    <!-- Solarleitung zum Speicher -->
+    <rect x="596" y="160" width="6" height="292" fill="#c2c2c2"/>
+    <rect x="300" y="446" width="302" height="6" fill="#c2c2c2"/>
+    <!-- Bad: Wanne mit warmem Wasser, Fußbodenheizung, Waschtisch -->
+    <rect x="560" y="258" width="86" height="34" rx="10" fill="#d6d6d6"/>
+    <rect x="418" y="292" width="234" height="6" fill="#c8c8c8"/>
+    <rect x="460" y="246" width="40" height="12" rx="5" fill="#a6a6a6"/>
+    <!-- Leck in der Innenwand (warmes Wasser breitet sich aus) -->
+    <path d="M398 334 C412 330 420 344 416 358 C428 366 432 382 424 392 C436 400 430 414 414 414 C406 422 392 420 388 410 C374 408 372 394 382 386 C374 372 382 360 390 356 C386 346 390 336 398 334 Z" fill="url(#leak)"/>
+    <!-- Abwasser -->
+    <rect x="636" y="292" width="9" height="250" fill="#8e8e8e"/>
+    <rect x="636" y="536" width="164" height="9" fill="#8a8a8a"/>
+    <!-- Fenster (Wärmeverlust nach außen) -->
+    <rect x="128" y="206" width="16" height="44" fill="#828282"/>
+    <rect x="656" y="330" width="16" height="44" fill="#828282"/>
+  </g>
+
+  <!-- Kantenlinien wie bei Wärmebildkameras mit Kantenüberlagerung -->
+  <g fill="none" stroke="#fff" stroke-opacity=".34" stroke-width="1.2" stroke-linejoin="round">
+    <polyline points="96,180 400,58 704,180"/>
+    <rect x="128" y="176" width="544" height="372"/>
+    <line x1="0" y1="430" x2="128" y2="430"/><line x1="672" y1="430" x2="800" y2="430"/>
+    <line x1="144" y1="296" x2="656" y2="296"/><line x1="144" y1="310" x2="656" y2="310"/>
+    <line x1="144" y1="424" x2="656" y2="424"/><line x1="144" y1="438" x2="656" y2="438"/>
+    <line x1="409" y1="186" x2="409" y2="296"/><line x1="402" y1="310" x2="402" y2="424"/>
+    <rect x="186" y="452" width="62" height="84" rx="4"/>
+    <rect x="270" y="446" width="44" height="90" rx="18"/>
+    <rect x="160" y="372" width="48" height="36" rx="3"/><rect x="160" y="246" width="48" height="36" rx="3"/><rect x="560" y="372" width="56" height="36" rx="3"/>
+    <rect x="560" y="258" width="86" height="34" rx="10"/>
+    <polygon points="470,96 610,152 596,166 456,110"/>
+    <rect x="128" y="206" width="16" height="44"/><rect x="656" y="330" width="16" height="44"/>
+  </g>
+</svg>
