@@ -264,3 +264,4 @@ figure { margin: 0; }
 .nav + .btn { margin-left: 0; }
 .leist { padding-top: 40px; }
 @media (max-width: 1020px) { .nav + .btn { margin-left: auto; } }
+@media (max-width: 640px) { .cross span { font-size: .6rem; padding: 3px 5px; top: -22px; } .cross { width: 36px; height: 36px; margin: -18px 0 0 -18px; } }
